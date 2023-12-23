@@ -1,0 +1,13 @@
+
+[workspace]
+resolver = '2'
+members = [
+	'apps/rust_oop',
+	'apps/apps/rust/oop/oop',
+	'apps//rust/oop',
+	'apps//rust/api',
+	'libs//rust/cats',
+]
+
+[profile.release]
+lto = true

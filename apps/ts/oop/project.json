@@ -1,0 +1,67 @@
+{
+  "name": "ts-oop",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ts/oop/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/ts/oop",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/ts/oop/src/main.ts",
+        "tsConfig": "apps/ts/oop/tsconfig.app.json",
+        "assets": ["apps/ts/oop/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ts-oop:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ts-oop:build:development"
+        },
+        "production": {
+          "buildTarget": "ts-oop:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ts/oop/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
