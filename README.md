@@ -5,7 +5,10 @@
 - `yarn nx serve ts-oop`
 - `yarn nx serve _rust_oop`
 
-## Monorepo Setup
+<details>
+<summary>Setup</summary>
+
+## Monorepo
 
 - npx create-nx-workspace@latest studies --preset=ts
 - sets `"packageManager": "yarn@3.6.1"` in package.json and adds a .yarn with it specific release
@@ -40,4 +43,6 @@ Plugins needed: `yarn add @monodon/rust -D`
 > Tip: It doesn't matter if it's in apps or libs, you can find the project name in the `project.json` files.
 
 - `yarn nx g rm ts-oop-e2e` which were in `/apps/ts/oop-e2e`. Same for projects inside /libs.
+
+</details>
 
