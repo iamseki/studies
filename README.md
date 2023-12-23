@@ -1,5 +1,10 @@
 # Studies
 
+## Runnable Projects 
+
+- `yarn nx serve ts-oop`
+- `yarn nx serve _rust_oop`
+
 ## Monorepo Setup
 
 - npx create-nx-workspace@latest studies --preset=ts
