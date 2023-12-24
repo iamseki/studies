@@ -5,3 +5,7 @@ version = 3
 [[package]]
 name = "_rust_oop"
 version = "0.1.0"
+
+[[package]]
+name = "_rust_ownership_mistakes"
+version = "0.1.0"

@@ -2,7 +2,8 @@
 [workspace]
 resolver = '2'
 members = [
-	'apps//rust/oop'
+	'apps//rust/oop',
+	'apps//rust/ownership_mistakes',
 ]
 
 [profile.release]
