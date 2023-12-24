@@ -42,7 +42,7 @@ fn main() {
     another_dog.greeting();
     println!("
 'dog' ownership was transfered to another_dog variable, so trying to access anything in 'dog' will cause a compile error.
-There's no garbage collection at all and the memory safety atm it's handled at compile time.
+There's no garbage collection at all and the memory safety atm it's handled at compile time by rust borrower checker.
 ");
 }
 
