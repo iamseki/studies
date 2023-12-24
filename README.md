@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  Repository containing implementation comparison between programming languages, to try design patterns, algorithms, demonstrating architecture faws and so on. Organizaded in a Monorepo fashion way.  
+  Repository containing implementation comparison between programming languages, to try design patterns, algorithms, to deep understanding software design decisions, demonstrating architecture faws and so on. Organizaded in a Monorepo fashion way.  
 </p>
 
 ---
