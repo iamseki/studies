@@ -2,6 +2,7 @@ trait Animal {
     fn greeting(&self);
 }
 
+#[allow(dead_code)]
 enum AnimalType {
     Mammals,
     Birds,
