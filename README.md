@@ -1,6 +1,14 @@
-# Studies
+<h1 align="center">
+  Studies 
+</h1>
 
-## Runnable Projects 
+<p align="center">
+  Repository containing implementation comparison between programming languages, to try design patterns, algorithms, demonstrating architecture faws and so on. Organizaded in a Monorepo fashion way.  
+</p>
+
+---
+
+## Runnable Projects 📜
 
 - `yarn nx serve ts-oop`
 - `yarn nx serve _rust_oop`
