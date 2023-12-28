@@ -1,16 +1,17 @@
-use std::env;
-use std::fs;
+use std::{env, process};
+
+use _rust_minigrep::Config;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let query = &args[1];
-    let file_path = &args[2];
 
-    println!("Searching for {query} in file {file_path}");
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {err}");
+        process::exit(1);
+    });
 
-    let contents = fs::read_to_string(file_path)
-        .expect("Should have been able to read the file");
-
-    println!("With text:\n{contents}");
+    if let Err(e) = _rust_minigrep::run(config) {
+        println!("Appication error: {e}");
+        process::exit(1);
+    }
 }
-
