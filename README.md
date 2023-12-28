@@ -12,7 +12,7 @@
 
 - `yarn nx serve ts-oop`
 - `yarn nx serve _rust_oop`
-- `yarn nx serve _rust_ownership_mistakes`
+- `yarn nx serve _rust_ownership_mistakes` or `make minigrep`
 
 <details>
 <summary>Setup</summary>
