@@ -30,6 +30,16 @@ fn stringify_name_with_title(name: &Vec<String>) -> String {
     full
 }
 
+fn add_big_strings(dst: &mut Vec<String>, src: &[String]) {
+    let largest_len: usize = 
+        dst.iter().max_by_key(|s| s.len()).unwrap().len();
+
+    for s in src {
+        if s.len() > largest_len {
+            dst.push(s.clone()); // we only can mutates data from dst, because there's no borrowing in dst.iter().max_by_key(|s| s.len()).unwrap().len(); operation
+        }
+    }
+}
 
 fn main() {
     return_a_string();
@@ -58,6 +68,29 @@ In rust we need to explicitly call the function as said as it's parameter is mut
 stringify_name_with_title(mut name: Vec<String>) -> String works but it's not a good solution, it wil take ownership of the input and after
 the function were executed name will be a dangling pointer.
 stringify_name_with_title(mut name: Vec<String>) -> String is not idiomatic neither appropriate since the name of the function not suggest a data mutation. 
-")
+");
+
+    let mut dst: Vec<String> = vec![String::from("aaah"),String::from("baaah")];
+    let src = [String::from("ha"), String::from("beeeeeeeeee"), String::from("ceeeeee")];
+    add_big_strings(&mut dst, &src);
+    println!("src: {:#?}, dst: {:#?}", src, dst);
+    println!("
+add_big_strings(dst: &mut Vec<String>, src: &[String]) it's a case that can let the borrower checker sad 
+if we don't carefully care about borowing variables values given a condition in the Vector datastructure and trying to mutate it afterward.
+The solutions is shortening the lifetime of borrows on datastrucure to not overlap with a mutation;
+");
+
+    let mut name = (
+        String::from("Ferris"),
+        String::from("Rustacean")
+    );
+    let first = &name.0;
+
+    name.1.push_str(", Esq.");
+    println!("{first}, {}", name.1);
+    println!("
+In some datastructure like tuples, if we pass it to a function, Rust decides then that every data in this tuple get borrowed, eliminating write and own permissions on both.
+Causing an error in compile time.
+");    
 }
 
