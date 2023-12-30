@@ -20,6 +20,17 @@ fn return_a_string_mut(output: &mut String) {
     output.replace_range(.., "Hello world"); // replace the entire string in output with "Hello world"
 }
 
+fn stringify_name_with_title(name: &Vec<String>) -> String {
+    let mut name_clone = name.clone();
+    name_clone.push("Esq.".to_string());
+    println!("name vector: {:#?}", name);
+    println!("name_clone vector: {:#?}", name_clone);
+    println!("name_clone is a copy of values from name, afterwards every change that occurs in name_clone doesn't affect name since they were allocated in differents memory space");
+    let full = name_clone.join(" ");
+    full
+}
+
+
 fn main() {
     return_a_string();
     
@@ -40,7 +51,13 @@ in the stack.
     println!("
 The function return_a_string_mut(output: &mut String) using a mutation approach.
 In rust we need to explicitly call the function as said as it's parameter is mutable: return_a_string_mut(&mut word);
+");
+    let name = vec![String::from("Ferris")];
+    stringify_name_with_title(&name);
+    println!("
+stringify_name_with_title(mut name: Vec<String>) -> String works but it's not a good solution, it wil take ownership of the input and after
+the function were executed name will be a dangling pointer.
+stringify_name_with_title(mut name: Vec<String>) -> String is not idiomatic neither appropriate since the name of the function not suggest a data mutation. 
 ")
-
 }
 
