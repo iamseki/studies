@@ -13,3 +13,7 @@ version = "0.1.0"
 [[package]]
 name = "_rust_ownership_mistakes"
 version = "0.1.0"
+
+[[package]]
+name = "_rust_slice"
+version = "0.1.0"

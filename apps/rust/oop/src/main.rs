@@ -61,6 +61,7 @@ So we need to 'borrow' or pass the value as reference with ampersand operator: f
     let_the_dogs_out(&another_dog);
 println!("
 The let_the_dogs_out function have a Stack Frame that points to another_dog Stack Frame that points to value in the Heap and after it's execution will disappears from Stack, releasing memory.
-")
+");
+
 }
 
