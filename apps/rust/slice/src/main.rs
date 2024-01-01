@@ -43,6 +43,11 @@ tip: &str is an immutable reference!!
 Change signature again to: first_word(s: &str) -> &str
 Cause &str agreed with &str and &String.
 First word of a string literal: {}
-", first_word("Hey Test!"))
+", first_word("Hey Test!"));
+
+    println!("
+show up memory usage in bytes by typos:
+&String={}, &str={}.
+tip: remember that when something like s._as_bytes() produces an immutable reference, it is illegal to mutate i1s value when iterates over it using .iter().", std::mem::size_of::<&String>(), std::mem::size_of::<&str>())
 }
 
