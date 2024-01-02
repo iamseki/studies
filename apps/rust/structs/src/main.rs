@@ -5,6 +5,12 @@ struct Rectangle {
     height: u32
 }
 
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn main() {
     let rect1 = Rectangle {
         width: 30,
@@ -12,7 +18,7 @@ fn main() {
     };
 
     println!(
-        "The area of the rectangle is {} square pixels.", area(&rect1)
+        "The area of the rectangle is {} square pixels.", rect1.area()
     );
 
     println!("The rect1 is {:?}",rect1);
@@ -29,8 +35,3 @@ fn main() {
     // passing as reference to not let dbg! take ownership of rect2
     dbg!(&rect2);
 }
-
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.height * rectangle.width
-}
-
