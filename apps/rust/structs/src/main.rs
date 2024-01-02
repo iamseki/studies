@@ -6,6 +6,14 @@ struct Rectangle {
 }
 
 impl Rectangle {
+    // Associated Function, -> Self is an aliases for Rectangle
+    fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size
+        }
+    }
+
     fn area(&self) -> u32 {
         self.width * self.height
     }
@@ -40,4 +48,12 @@ fn main() {
     dbg!(&rect2);
 
     println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+
+    println!("Creates an associated function for Rectangle. square(size: u32) -> Self
+which returns an instance of a square Rectangle. Self is an aliases for Rectangle type.
+To call the associated function, we use the :: syntax => Rectangle::square(3);
+");
+
+    let square = Rectangle::square(3);
+    dbg!(&square);
 }
