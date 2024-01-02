@@ -1,5 +1,5 @@
 // Needed to let Rust prints the struct using the :? inside the curly brackets in println!() fn 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 struct Rectangle {
     width: u32,
     height: u32
@@ -21,10 +21,18 @@ impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
+
+    fn max(self, other: Rectangle) -> Rectangle {
+        Rectangle { width: self.width.max(other.width), height: self.height.max(other.height) }
+    }
+
+    fn set_to_max(&mut self, other: Rectangle) {
+        *self = self.max(other);
+    }
 }
 
 fn main() {
-    let rect1 = Rectangle {
+    let mut rect1 = Rectangle {
         width: 30,
         height: 50
     };
@@ -56,4 +64,8 @@ To call the associated function, we use the :: syntax => Rectangle::square(3);
 
     let square = Rectangle::square(3);
     dbg!(&square);
+
+    dbg!(&rect1);
+    rect1.set_to_max(rect2);
+    println!("rect1 after set_to_max: {:?}", rect1)
 }
