@@ -6,6 +6,7 @@ members = [
 	'apps//rust/ownership_mistakes',
 	'apps//rust/minigrep',
 	'apps//rust/slice',
+	'apps//rust/structs',
 ]
 
 [profile.release]
