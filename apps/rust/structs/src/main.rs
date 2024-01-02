@@ -9,6 +9,10 @@ impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
     }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
+    }
 }
 
 fn main() {
@@ -30,8 +34,10 @@ fn main() {
     let scale = 2;
     let rect2 = Rectangle {
         width: dbg!(30 * scale), // This prints exactly the line and the file which were printed out to stdout/err !!1!
-        height: 50
+        height: 60
     };
     // passing as reference to not let dbg! take ownership of rect2
     dbg!(&rect2);
+
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
 }
