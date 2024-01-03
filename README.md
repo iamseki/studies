@@ -15,6 +15,7 @@
 - `yarn nx serve _rust_ownership_mistakes` or `make minigrep`
 - `yarn nx serve _rust_slice`
 - `yarn nx serve _rust_structs`
+- `yarn nx serve _rust_enums`
 
 <details>
 <summary>Setup</summary>

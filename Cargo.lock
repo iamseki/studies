@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "_rust_enums"
+version = "0.1.0"
+
+[[package]]
 name = "_rust_minigrep"
 version = "0.1.0"
 

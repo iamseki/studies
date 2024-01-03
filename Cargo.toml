@@ -7,6 +7,7 @@ members = [
 	'apps//rust/minigrep',
 	'apps//rust/slice',
 	'apps//rust/structs',
+	'apps//rust/enums',
 ]
 
 [profile.release]
