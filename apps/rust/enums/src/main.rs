@@ -1,3 +1,7 @@
+use crate::world::coin::{Coin, value_in_cents, UsState};
+
+pub mod world;
+
 #[derive(Debug)]
 enum IpAddr {
     V4(u8, u8, u8, u8),
@@ -14,34 +18,6 @@ enum Message {
 impl Message {
     fn call(&self) {
         println!("little bit weird")
-    }
-}
-
-#[derive(Debug)]
-enum UsState {
-    Alabama,
-    Alaska
-}
-
-enum Coin {
-    Penny,
-    Nickel,
-    Dime,
-    Quarter(UsState)
-}
-
-fn value_in_cents(coin: Coin) -> u8 {
-    match coin {
-        Coin::Penny => { 
-            println!("Lucky penny!");
-            1
-        },
-        Coin::Nickel => 5,
-        Coin::Dime => 10,
-        Coin::Quarter(state) => {
-            println!("state quarter from {:?}!", state);
-            25
-        }
     }
 }
 
