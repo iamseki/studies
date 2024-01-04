@@ -8,6 +8,7 @@ members = [
 	'apps//rust/slice',
 	'apps//rust/structs',
 	'apps//rust/enums',
+	'apps//rust/lib',
 ]
 
 [profile.release]
