@@ -10,6 +10,7 @@ members = [
 	'apps//rust/enums',
 	'apps//rust/lib',
 	'apps//rust/ds',
+	'apps//rust/errors',
 ]
 
 [profile.release]

@@ -16,6 +16,8 @@
 - `yarn nx serve _rust_slice`
 - `yarn nx serve _rust_structs`
 - `yarn nx serve _rust_enums`
+- `yarn nx serve _rust_ds`
+- `yarn nx serve _rust_errors`
 
 <details>
 <summary>Setup</summary>
