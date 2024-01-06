@@ -18,6 +18,7 @@
 - `yarn nx serve _rust_enums`
 - `yarn nx serve _rust_ds`
 - `yarn nx serve _rust_errors`
+- `yarn nx serve _rust_generics`
 
 <details>
 <summary>Setup</summary>
