@@ -35,3 +35,7 @@ impl Summary for NewsArticle {
       format!("@{}", self.author)
   }
 }
+
+pub fn notify(item: &impl Summary) {
+  println!("Breaking news! {}", item.summarize());
+}

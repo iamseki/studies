@@ -1,4 +1,4 @@
-use _rust_generics::{NewsArticle, Summary, Tweet};
+use _rust_generics::{NewsArticle, Summary, Tweet, notify};
 
 fn largest_i32(list: &[i32]) -> &i32 {
     let mut largest = &list[0];
@@ -88,4 +88,23 @@ fn main() {
 
     println!("New article available! {}", article.summarize());
     println!("Since article has an empty impl block summarize turns to default implementation in Summary trait");
+
+    println!("A function can also accept a trait as paramter such as notify (item: &impl Summary), item must be a type that implements the trait Summary");
+    notify(&article);
+    notify(&tweet);
+    
+    println!("But it was a syntax sugar to 'trait bounds': pub fn notify<T: Summary>(item: &T)");
+    println!("If we want two arguments of same concrete type we must use trait bounds such as: pub fn notify<T: Summary>(item1: &T, item2: &T)");
+    println!("We also can have an argument that needs two trait implementations: notify(item: &(impl Summary + Display))");
+
+    println!("
+This can be tough to read, for instance:
+fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32
+
+We can use 'where' clause like this to specifying trait bounds:
+fn some_function<T, U>(t: &T, u: &U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug
+")
 }
