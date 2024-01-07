@@ -1,3 +1,5 @@
+use _rust_generics::{ Summary, Tweet};
+
 fn largest_i32(list: &[i32]) -> &i32 {
     let mut largest = &list[0];
 
@@ -34,7 +36,6 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
     largest
 }
 
-
 fn main() {
     let number_list = vec![32, 140, 50, 23, 100];
     let result = largest_i32(&number_list);
@@ -65,6 +66,15 @@ fn main() {
     dbg!(both_integer);
     dbg!(both_float);
     dbg!(interger_and_float);
+
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, peaople"),
+        reply: false,
+        retweet: false
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
     
 }
 
