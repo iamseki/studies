@@ -1,4 +1,4 @@
-use _rust_generics::{ Summary, Tweet};
+use _rust_generics::{NewsArticle, Summary, Tweet};
 
 fn largest_i32(list: &[i32]) -> &i32 {
     let mut largest = &list[0];
@@ -20,7 +20,7 @@ fn largest_char(list: &[char]) -> &char {
             largest = item
         }
     }
-    
+
     largest
 }
 
@@ -56,12 +56,12 @@ fn main() {
     #[derive(Debug)]
     struct Point<T, U> {
         x: T,
-        y: U
+        y: U,
     }
-    
-    let both_integer = Point { x: 10, y: 8};
-    let both_float = Point { x: 10.17, y: 17.7};
-    let interger_and_float = Point { x: 17.4, y: 7};
+
+    let both_integer = Point { x: 10, y: 8 };
+    let both_float = Point { x: 10.17, y: 17.7 };
+    let interger_and_float = Point { x: 17.4, y: 7 };
     // since we moved the following variables to dbg! fn we can used any of them futher 1!!!!
     dbg!(both_integer);
     dbg!(both_float);
@@ -71,10 +71,21 @@ fn main() {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, peaople"),
         reply: false,
-        retweet: false
+        retweet: false,
     };
 
     println!("1 new tweet: {}", tweet.summarize());
-    
-}
 
+    let article = NewsArticle {
+        headline: String::from("Penguins win the Stanley Cup Championship!"),
+        location: String::from("Pittsburh, PA, USA"),
+        author: String::from("Iceburgh"),
+        content: String::from(
+            "The Pittsburgh Penguins once again are the best \
+             hockey team in the NHL.",
+        ),
+    };
+
+    println!("New article available! {}", article.summarize());
+    println!("Since article has an empty impl block summarize turns to default implementation in Summary trait");
+}
