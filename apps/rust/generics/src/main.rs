@@ -36,6 +36,14 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
     largest
 }
 
+fn longest_str<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x 
+    } else {
+        y
+    }
+}
+
 fn main() {
     let number_list = vec![32, 140, 50, 23, 100];
     let result = largest_i32(&number_list);
@@ -106,5 +114,13 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 where
     T: Display + Clone,
     U: Clone + Debug
-")
+");
+
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest_str(&string1, &string2);
+    println!("Generic lifetimes in functions comparing strings, result => {}", result);
+
+
 }
