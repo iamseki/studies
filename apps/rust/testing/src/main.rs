@@ -1,5 +1,6 @@
-use _rust_math::{add_two};
+use _rust_testing::external;
+
 fn main() {
-    println!("Hello, world TESTINGGGG add_two => {}!", add_two(2));
+    println!("Hello, world TESTINGGGG add_two => {}!", external::add_two_from_lib(2));
 }
 

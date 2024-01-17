@@ -18,6 +18,10 @@ pub fn greeting(name: &str) -> String {
     format!("Hello {}!", name)
 }
 
+fn internal_adder(a: i32, b: i32) -> i32 {
+    a + b
+}
+
 pub struct Guess {
     value: i32,
 }
@@ -36,6 +40,10 @@ impl Guess {
 mod tests {
     use super::*;
 
+    #[test]
+    fn should_call_internal_adder() {
+        assert_eq!(2, internal_adder(1, 1));
+    }
     #[test]
     #[should_panic(expected = "Guess value must be between 1 and 100")]
     fn greater_than_100() {
