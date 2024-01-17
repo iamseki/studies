@@ -1,3 +1,5 @@
+use std::thread;
+
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
     Red,
@@ -23,7 +25,9 @@ the || self.most_stocked() => it's a closure without any arguments...
         let mut num_red = 0;
         let mut num_blue = 0;
 
-        let add_one_closure = |mut x| { x+=1;};
+        let add_one_closure = |mut x| {
+            x += 1;
+        };
 
         for color in &self.shirts {
             match color {
@@ -41,7 +45,7 @@ the || self.most_stocked() => it's a closure without any arguments...
 }
 
 pub fn give_away_scenario() {
-    let store = Inventory {
+    let mut store = Inventory {
         shirts: vec![ShirtColor::Blue, ShirtColor::Red, ShirtColor::Blue],
     };
 
@@ -58,6 +62,26 @@ pub fn give_away_scenario() {
         "The user with preference {:?} gets {:?}",
         user_pref2, giveaway2
     );
+
+    println!("shirts before defining closure: {:?}", store.shirts);
+    let only_borrows = || println!("From closure: {:?}", store.shirts);
+    println!("shirts before calling closure: {:?}", store.shirts);
+    only_borrows();
+    println!("shirts after calling closure: {:?}", store.shirts);
+
+    let mut borrows_mutably = || store.shirts.push(ShirtColor::Blue);
+    borrows_mutably();
+    println!(
+        "shirts after calling borrows_mutably() closure: {:?}",
+        store.shirts
+    );
+
+    thread::spawn(move || println!("From thread: {:?}", store.shirts))
+        .join()
+        .unwrap();
+
+    // can't compile cause move ownership to another thread!!!
+    // println!("shirts after calling thread.spawn closure: {:?}", store.shirts);
 }
 
 #[cfg(test)]
