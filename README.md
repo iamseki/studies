@@ -19,6 +19,7 @@
 - `yarn nx serve _rust_ds`
 - `yarn nx serve _rust_errors`
 - `yarn nx serve _rust_generics`
+- `yarn nx serve _rust_testing`
 
 <details>
 <summary>Setup</summary>

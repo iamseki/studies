@@ -12,6 +12,8 @@ members = [
 	'apps//rust/ds',
 	'apps//rust/errors',
 	'apps//rust/generics',
+	'apps//rust/testing',
+	'libs//rust/math',
 ]
 
 [profile.release]
