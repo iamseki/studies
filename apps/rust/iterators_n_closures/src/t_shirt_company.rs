@@ -23,10 +23,12 @@ the || self.most_stocked() => it's a closure without any arguments...
         let mut num_red = 0;
         let mut num_blue = 0;
 
+        let add_one_closure = |mut x| { x+=1;};
+
         for color in &self.shirts {
             match color {
-                ShirtColor::Red => num_red += 1,
-                ShirtColor::Blue => num_blue += 1,
+                ShirtColor::Red => add_one_closure(num_red),
+                ShirtColor::Blue => add_one_closure(num_blue),
             }
         }
 
