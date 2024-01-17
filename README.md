@@ -20,6 +20,7 @@
 - `yarn nx serve _rust_errors`
 - `yarn nx serve _rust_generics`
 - `yarn nx serve _rust_testing`
+- `yarn nx serve _rust_iterators_n_closures`
 
 <details>
 <summary>Setup</summary>

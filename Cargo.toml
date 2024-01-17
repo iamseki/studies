@@ -14,6 +14,7 @@ members = [
 	'apps//rust/generics',
 	'apps//rust/testing',
 	'libs//rust/math',
+	'apps//rust/iterators_n_closures',
 ]
 
 [profile.release]
