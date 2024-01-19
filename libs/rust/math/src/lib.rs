@@ -1,3 +1,6 @@
+//! # Rust Math
+//! '_rust_math' it's an example of how to create a library and also used to explore rust stuff.
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
