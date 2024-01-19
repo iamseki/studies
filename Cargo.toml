@@ -15,6 +15,7 @@ members = [
 	'apps//rust/testing',
 	'libs//rust/math',
 	'apps//rust/iterators_n_closures',
+	'apps//rust/smart_pointers',
 ]
 
 [profile.release]

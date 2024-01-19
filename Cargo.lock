@@ -47,6 +47,10 @@ name = "_rust_slice"
 version = "0.1.0"
 
 [[package]]
+name = "_rust_smart_pointers"
+version = "0.1.0"
+
+[[package]]
 name = "_rust_structs"
 version = "0.1.0"
 
