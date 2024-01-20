@@ -1,6 +1,7 @@
 use std::rc::Rc;
 
 use _rust_smart_pointers::custom_pointer::{List::{Cons, Nil}, MyBox};
+use _rust_smart_pointers::reference_cycle;
 
 fn main() {
     let b = Box::new(5);
@@ -47,4 +48,8 @@ fn main() {
         println!("count after creating c = {}", Rc::strong_count(&a));
     }
     println!("count after c goes out of scope = {}", Rc::strong_count(&a));
+
+    reference_cycle::run_example_with_cycle();
+    reference_cycle::run_tree_example();
 }
+
