@@ -1,10 +1,12 @@
+use std::rc::Rc;
+
 use _rust_smart_pointers::custom_pointer::{List::{Cons, Nil}, MyBox};
 
 fn main() {
     let b = Box::new(5);
     println!("b data is on the heap 11!!!! => {}", b);
 
-    let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
+    let list = Cons(1, Rc::new(Cons(2, Rc::new(Cons(3, Rc::new(Nil))))));
 
     dbg!(list);
 
@@ -34,5 +36,13 @@ fn main() {
     let another_smart_pointer = MyBox::new(String::from("Another one1!!!"));
     hello(&another_smart_pointer);
 
-    
+    println!("An example with Rc<T> reference_counting");
+
+    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
+    let b = Cons(3, Rc::clone(&a));
+    let c = Cons(4, Rc::clone(&a));
+
+    dbg!(a);
+    dbg!(b);
+    dbg!(c);
 }
