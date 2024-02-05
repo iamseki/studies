@@ -1,17 +1,9 @@
-use std::{thread, time::Duration};
+use _rust_concurrency::{passing_message, shared_state, simple_example};
 
 fn main() {
-    let handle = thread::spawn(|| {
-        for i in 1..10 {
-            println!("hi number {} from the spawned thread!", i);
-            thread::sleep(Duration::from_millis(1));
-        }
-    });
+    simple_example::run();
 
-    for i in 1..5 {
-        println!("hi number {} from the main thread!", i);
-        thread::sleep(Duration::from_millis(1));
-    }
+    passing_message::run();
 
-    handle.join().unwrap();
+    shared_state::run();
 }
