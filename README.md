@@ -22,6 +22,7 @@
 - `yarn nx serve _rust_testing`
 - `yarn nx serve _rust_iterators_n_closures`
 - `yarn nx serve _rust_smart_pointers`
+- `yarn nx serve _rust_concurrency`
 
 <details>
 <summary>Setup</summary>

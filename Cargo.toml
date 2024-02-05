@@ -16,6 +16,7 @@ members = [
 	'libs//rust/math',
 	'apps//rust/iterators_n_closures',
 	'apps//rust/smart_pointers',
+	'apps//rust/concurrency',
 ]
 
 [profile.release]

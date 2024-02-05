@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "_rust_concurrency"
+version = "0.1.0"
+
+[[package]]
 name = "_rust_ds"
 version = "0.1.0"
 
