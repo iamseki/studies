@@ -178,7 +178,7 @@ fn bindings() {
         Hello { id: i32 },
     }
 
-    let msg = Message::Hello { id: 5 };
+    let msg = Message::Hello { id: 7 };
 
     match msg {
         Message::Hello {
@@ -190,7 +190,7 @@ fn bindings() {
 }
 
 fn main() {
-    println!("=== PATTERNS MATCHING ===");
+    println!("=== PATTERNS MATCHING START ===");
 
     while_let();
     for_loops();
@@ -206,4 +206,5 @@ fn main() {
     match_guard();
 
     bindings();
+    println!("=== PATTERNS MATCHING END ===");
 }
