@@ -23,6 +23,7 @@
 - `yarn nx serve _rust_iterators_n_closures`
 - `yarn nx serve _rust_smart_pointers`
 - `yarn nx serve _rust_concurrency`
+- `yarn nx serve _rust_patterns_matching`
 
 <details>
 <summary>Setup</summary>
@@ -52,7 +53,7 @@ Plugins needed: `yarn add @monodon/rust -D`
 
 ### Apps
 
-- `yarn nx g @monodon/rust:binary oop --directory=/rust`
+- `yarn nx g @monodon/rust:binary patterns_matching --directory=/rust`
 
 ### Libs
 

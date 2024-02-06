@@ -17,6 +17,7 @@ members = [
 	'apps//rust/iterators_n_closures',
 	'apps//rust/smart_pointers',
 	'apps//rust/concurrency',
+	'apps//rust/patterns_matching',
 ]
 
 [profile.release]
