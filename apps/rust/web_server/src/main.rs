@@ -7,7 +7,7 @@ use std::{
     time::Duration,
 };
 
-use _rust_web_server::{fibonacci, ThreadPool};
+use _rust_web_server::{fibonacci, thread_pool::ThreadPool};
 
 fn handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&mut stream);
