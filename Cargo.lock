@@ -68,3 +68,7 @@ version = "0.1.0"
 dependencies = [
  "_rust_math",
 ]
+
+[[package]]
+name = "_rust_web_server"
+version = "0.1.0"

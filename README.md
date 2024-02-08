@@ -24,6 +24,7 @@
 - `yarn nx serve _rust_smart_pointers`
 - `yarn nx serve _rust_concurrency`
 - `yarn nx serve _rust_patterns_matching`
+- `yarn nx serve _rust_web_server`
 
 <details>
 <summary>Setup</summary>

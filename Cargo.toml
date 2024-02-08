@@ -18,6 +18,7 @@ members = [
 	'apps//rust/smart_pointers',
 	'apps//rust/concurrency',
 	'apps//rust/patterns_matching',
+	'apps//rust/web_server',
 ]
 
 [profile.release]
