@@ -1,4 +1,5 @@
 use std::{
+    error::Error,
     fs,
     io::{BufRead, BufReader, Write},
     net::{TcpListener, TcpStream},
@@ -6,7 +7,7 @@ use std::{
     time::Duration,
 };
 
-use _rust_web_server::fibonacci;
+use _rust_web_server::{fibonacci, ThreadPool};
 
 fn handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&mut stream);
@@ -35,11 +36,20 @@ fn handle_connection(mut stream: TcpStream) {
     stream.write_all(response.as_bytes()).unwrap();
 }
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     let listener = TcpListener::bind("0.0.0.0:8080").unwrap();
+    let pool = match ThreadPool::build(0) {
+        Ok(pool) => pool,
+        Err(err) => panic!("Failed build ThreadPool with error => {err}"),
+    };
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
-        handle_connection(stream);
+
+        pool.execute(|| {
+            handle_connection(stream);
+        });
     }
+
+    Ok(())
 }
