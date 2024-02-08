@@ -38,7 +38,7 @@ fn handle_connection(mut stream: TcpStream) {
 
 fn main() -> Result<(), Box<dyn Error>> {
     let listener = TcpListener::bind("0.0.0.0:8080").unwrap();
-    let pool = match ThreadPool::build(0) {
+    let pool = match ThreadPool::build(4) {
         Ok(pool) => pool,
         Err(err) => panic!("Failed build ThreadPool with error => {err}"),
     };
